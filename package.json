@@ -1,7 +1,7 @@
 {
   "name": "geodist",
   "description": "Simple geographic distance calculator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Charles Moncrief",
     "url": "https://github.com/cmoncrief/geodist"
@@ -10,7 +10,7 @@
     "Alexander Pope <alexander.pope@nrk.no>"
   ],
   "dependencies": {
-    "number-utils": "git+ssh://git@github.com:yr/number-utils.git#0.2.1"
+    "number-utils": "YR/number-utils#0.2.2"
   },
   "devDependencies": {
     "buddy": "popeindustries/buddy#2.0.6-beta",
