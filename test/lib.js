@@ -198,8 +198,6 @@ require.register('index.js', function(require, module, exports) {
     },
         DEFAULT_UNIT = 'meters';
     
-    module.exports = getDistance;
-    
     /**
      * Retrieve geographic distance between 'start' and 'end' lat/lon points
      * Options:
@@ -213,7 +211,7 @@ require.register('index.js', function(require, module, exports) {
      * @param {Object) options
      * @returns {Number}
      */
-    function getDistance(start, end, options) {
+    module.exports = function getDistance(start, end, options) {
     	options = options || {};
     
     	var earthRadius = getEarthRadius(options.unit),
@@ -233,7 +231,7 @@ require.register('index.js', function(require, module, exports) {
     	if (options.format) dist = '' + dist + ' ' + (options.unit || DEFAULT_UNIT);
     
     	return dist;
-    }
+    };
     
     /**
      * Retrieve radius of earth in specified 'unit'

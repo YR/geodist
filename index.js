@@ -14,8 +14,6 @@ const numberUtils = require('@yr/number-utils')
 		}
 	, DEFAULT_UNIT = 'meters';
 
-module.exports = getDistance;
-
 /**
  * Retrieve geographic distance between 'start' and 'end' lat/lon points
  * Options:
@@ -29,7 +27,7 @@ module.exports = getDistance;
  * @param {Object) options
  * @returns {Number}
  */
-function getDistance (start, end, options) {
+module.exports = function getDistance (start, end, options) {
 	options = options || {};
 
 	const earthRadius = getEarthRadius(options.unit)
