@@ -1,4 +1,6 @@
-var numberUtils = require('@yr/number-utils')
+'use strict';
+
+const numberUtils = require('@yr/number-utils')
 
 	, RADIUS_UNITS = {
 			'feet': 20908800,
@@ -11,8 +13,6 @@ var numberUtils = require('@yr/number-utils')
 			'm': 6371000
 		}
 	, DEFAULT_UNIT = 'meters';
-
-module.exports = getDistance;
 
 /**
  * Retrieve geographic distance between 'start' and 'end' lat/lon points
@@ -27,17 +27,18 @@ module.exports = getDistance;
  * @param {Object) options
  * @returns {Number}
  */
-function getDistance (start, end, options) {
+module.exports = function getDistance (start, end, options) {
 	options = options || {};
 
-	var earthRadius = getEarthRadius(options.unit)
+	const earthRadius = getEarthRadius(options.unit)
 		, latDelta = numberUtils.degreesToRadians(end.lat - start.lat)
 		, latDeltaSin = Math.sin(latDelta * 0.5)
 		, lonDelta = numberUtils.degreesToRadians(end.lon - start.lon)
 		, lonDeltaSin = Math.sin(lonDelta * 0.5)
 		, startLatRad = numberUtils.degreesToRadians(start.lat)
 		, endLatRad = numberUtils.degreesToRadians(end.lat)
-		, a = (latDeltaSin * latDeltaSin) + (lonDeltaSin * lonDeltaSin * Math.cos(startLatRad) * Math.cos(endLatRad))
+
+	let a = (latDeltaSin * latDeltaSin) + (lonDeltaSin * lonDeltaSin * Math.cos(startLatRad) * Math.cos(endLatRad))
 		, c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 		, dist = earthRadius * c;
 
