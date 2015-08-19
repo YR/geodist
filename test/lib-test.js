@@ -1,3 +1,5 @@
+'use strict';
+
 var round, geodist, expect;
 
 // Make it work in node..
@@ -9,7 +11,7 @@ try {
 } catch (err) {
 	geodist = require('index.js');
 	expect = window.expect;
-	round = require('@yr/number-utils/index.js#0.2.2').round;
+	round = require('@yr/number-utils/index.js').round;
 }
 
 describe('geodist', function () {
