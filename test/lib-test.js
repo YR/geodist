@@ -9,7 +9,7 @@ try {
 	round = require('@yr/number-utils').round
 // .. or browser
 } catch (err) {
-	geodist = require('index.js');
+	geodist = require('src/index.js');
 	expect = window.expect;
 	round = require('@yr/number-utils/index.js').round;
 }
