@@ -1,3 +1,6 @@
+[![NPM Version](https://img.shields.io/npm/v/@yr/geodist.svg?style=flat)](https://npmjs.org/package/@yr/geodist)
+[![Build Status](https://img.shields.io/travis/YR/geodist.svg?style=flat)](https://travis-ci.org/YR/geodist)
+
 *This is a fork of [cmoncrief/geodist](https://github.com/cmoncrief/geodist)*
 
 A fast and simple geographical distance calculator. This module calculates "as the crow flies" distance between two points using the [haversine formula](http://en.wikipedia.org/wiki/Haversine_formula).
