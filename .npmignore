@@ -2,3 +2,4 @@
 .git*
 test
 src
+.travis.yml
