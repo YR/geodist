@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * Simple geographic distance calculator
+ * https://github.com/yr/geodist
+ * @copyright Yr
+ * @license MIT
+ */
+
 const numberUtils = require('@yr/number-utils')
 
   , RADIUS_UNITS = {
@@ -36,7 +43,7 @@ module.exports = function getDistance (start, end, options) {
     , lonDelta = numberUtils.degreesToRadians(end.lon - start.lon)
     , lonDeltaSin = Math.sin(lonDelta * 0.5)
     , startLatRad = numberUtils.degreesToRadians(start.lat)
-    , endLatRad = numberUtils.degreesToRadians(end.lat)
+    , endLatRad = numberUtils.degreesToRadians(end.lat);
 
   let a = (latDeltaSin * latDeltaSin) + (lonDeltaSin * lonDeltaSin * Math.cos(startLatRad) * Math.cos(endLatRad))
     , c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
@@ -47,7 +54,7 @@ module.exports = function getDistance (start, end, options) {
   if (options.format) dist = '' + dist + ' ' + (options.unit || DEFAULT_UNIT);
 
   return dist;
-}
+};
 
 /**
  * Retrieve radius of earth in specified 'unit'

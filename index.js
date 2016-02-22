@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * Simple geographic distance calculator
+ * https://github.com/yr/geodist
+ * @copyright Yr
+ * @license MIT
+ */
+
 var numberUtils = require('@yr/number-utils'),
     RADIUS_UNITS = {
   'feet': 20908800,

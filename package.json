@@ -10,14 +10,14 @@
     "Alexander Pope <alexander.pope@nrk.no>"
   ],
   "dependencies": {
-    "@yr/number-utils": "~1.1"
+    "@yr/number-utils": "1.1.x"
   },
   "devDependencies": {
-    "buddy": "~3.0",
+    "buddy": "*",
+    "buddy-plugin-babel": "6.5.2-2",
     "expect.js": "*",
     "mocha": "*",
-    "mocha-phantomjs": "*",
-    "transfigure-babel": "~5.8"
+    "mocha-phantomjs": "*"
   },
   "main": "index.js",
   "repository": "https://github.com/yr/geodist.git",
@@ -30,8 +30,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "browser": {
-  },
+  "browser": "index.js",
   "buddy": {
     "build": {
       "targets": [

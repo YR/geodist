@@ -1,5 +1,4 @@
 .DS_Store
 .git*
 test
-src
 .travis.yml
