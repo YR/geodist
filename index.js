@@ -7,18 +7,19 @@
  * @license MIT
  */
 
-var numberUtils = require('@yr/number-utils'),
-    RADIUS_UNITS = {
-  'feet': 20908800,
-  'yards': 6969600,
-  'miles': 3960,
-  'mi': 3960,
-  'kilometers': 6371,
-  'km': 6371,
-  'meters': 6371000,
-  'm': 6371000
-},
-    DEFAULT_UNIT = 'meters';
+var numberUtils = require('@yr/number-utils');
+
+var RADIUS_UNITS = {
+  feet: 20908800,
+  yards: 6969600,
+  miles: 3960,
+  mi: 3960,
+  kilometers: 6371,
+  km: 6371,
+  meters: 6371000,
+  m: 6371000
+};
+var DEFAULT_UNIT = 'meters';
 
 /**
  * Retrieve geographic distance between 'start' and 'end' lat/lon points
@@ -36,21 +37,20 @@ var numberUtils = require('@yr/number-utils'),
 module.exports = function getDistance(start, end, options) {
   options = options || {};
 
-  var earthRadius = getEarthRadius(options.unit),
-      latDelta = numberUtils.degreesToRadians(end.lat - start.lat),
-      latDeltaSin = Math.sin(latDelta * 0.5),
-      lonDelta = numberUtils.degreesToRadians(end.lon - start.lon),
-      lonDeltaSin = Math.sin(lonDelta * 0.5),
-      startLatRad = numberUtils.degreesToRadians(start.lat),
-      endLatRad = numberUtils.degreesToRadians(end.lat);
-
-  var a = latDeltaSin * latDeltaSin + lonDeltaSin * lonDeltaSin * Math.cos(startLatRad) * Math.cos(endLatRad),
-      c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)),
-      dist = earthRadius * c;
+  var earthRadius = getEarthRadius(options.unit);
+  var latDelta = numberUtils.degreesToRadians(end.lat - start.lat);
+  var latDeltaSin = Math.sin(latDelta * 0.5);
+  var lonDelta = numberUtils.degreesToRadians(end.lon - start.lon);
+  var lonDeltaSin = Math.sin(lonDelta * 0.5);
+  var startLatRad = numberUtils.degreesToRadians(start.lat);
+  var endLatRad = numberUtils.degreesToRadians(end.lat);
+  var a = latDeltaSin * latDeltaSin + lonDeltaSin * lonDeltaSin * Math.cos(startLatRad) * Math.cos(endLatRad);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var dist = earthRadius * c;
 
   if (!options.exact) dist = Math.floor(dist);
   if (options.limit) return options.limit > dist ? true : false;
-  if (options.format) dist = '' + dist + ' ' + (options.unit || DEFAULT_UNIT);
+  if (options.format) dist = dist + ' ' + (options.unit || DEFAULT_UNIT);
 
   return dist;
 };

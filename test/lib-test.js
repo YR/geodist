@@ -2,16 +2,16 @@
 
 var round, geodist, expect;
 
-// Make it work in node..
+// Make it work in browser
 try {
-  geodist = require('../index.js');
-  expect = require('expect.js');
-  round = require('@yr/number-utils').round
-// .. or browser
-} catch (err) {
   geodist = require('src/index.js');
   expect = window.expect;
-  round = require('@yr/number-utils/index.js').round;
+  round = require('@yr/number-utils/index.js#1.1.1').round;
+// .. or Node
+} catch (err) {
+  geodist = require('../index.js');
+  expect = require('expect.js');
+  round = require('@yr/number-utils').round;
 }
 
 describe('geodist', function () {
@@ -24,6 +24,7 @@ describe('geodist', function () {
         lat: 33.7489,
         lon: -84.3881
       });
+
       expect(dist).to.eql(945086);
     });
     it('should calculate meters between Los Angeles and San Francisco', function () {
@@ -34,6 +35,7 @@ describe('geodist', function () {
         lat: 37.7750,
         lon: -122.4183
       });
+
       expect(dist).to.eql(559116);
     });
     it('should calculate meters between Tokyo and Osaka', function () {
@@ -44,6 +46,7 @@ describe('geodist', function () {
         lat: 34.6603,
         lon: 135.5232
       });
+
       expect(dist).to.eql(402092);
     });
     it('should calculate meters between Paris and Berlin', function () {
@@ -54,6 +57,7 @@ describe('geodist', function () {
         lat: 52.5233,
         lon: 13.4127
       });
+
       expect(dist).to.eql(877379);
     });
   });
@@ -69,6 +73,7 @@ describe('geodist', function () {
       }, {
         limit: 321869
       });
+
       expect(dist).to.eql(false);
     });
     it('should return true if limit is exceeded', function () {
@@ -81,6 +86,7 @@ describe('geodist', function () {
       }, {
         limit: 402336
       });
+
       expect(dist).to.eql(true);
     });
   });
@@ -96,6 +102,7 @@ describe('geodist', function () {
       }, {
         unit: 'miles'
       });
+
       expect(dist).to.eql(11922);
     });
     it('should calculate mi between Cordoba and Hamilton', function () {
@@ -108,6 +115,7 @@ describe('geodist', function () {
       }, {
         unit: 'mi'
       });
+
       expect(dist).to.eql(11922);
     });
     it('should calculate yards between Cordoba and Hamilton', function () {
@@ -120,6 +128,7 @@ describe('geodist', function () {
       }, {
         unit: 'yards'
       });
+
       expect(dist).to.eql(20983263);
     });
     it('should calculate feet between Cordoba and Hamilton', function () {
@@ -132,6 +141,7 @@ describe('geodist', function () {
       }, {
         unit: 'feet'
       });
+
       expect(dist).to.eql(62949789);
     });
     it('should calculate km between Cordoba and Hamilton', function () {
@@ -144,6 +154,7 @@ describe('geodist', function () {
       }, {
         unit: 'km'
       });
+
       expect(dist).to.eql(19181);
     });
     it('should calculate kilometers between Cordoba and Hamilton', function () {
@@ -156,6 +167,7 @@ describe('geodist', function () {
       }, {
         unit: 'kilometers'
       });
+
       expect(dist).to.eql(19181);
     });
     it('should calculate meters between Cordoba and Hamilton', function () {
@@ -168,6 +180,7 @@ describe('geodist', function () {
       }, {
         unit: 'meters'
       });
+
       expect(dist).to.eql(19181067);
     });
     it('should calculate in meters when an invalid unit is set', function () {
@@ -180,6 +193,7 @@ describe('geodist', function () {
       }, {
         unit: 'foo'
       });
+
       expect(dist).to.eql(19181067);
     });
   });
@@ -193,6 +207,7 @@ describe('geodist', function () {
         lat: 33.7489,
         lon: -84.3881
       });
+
       expect(dist).to.eql(945086);
     });
     it('should output decimal numbers when exact option is set', function () {
@@ -205,6 +220,7 @@ describe('geodist', function () {
       }, {
         exact: true
       });
+
       expect(round(dist, 4)).to.eql(945086.1705);
     });
     it('should output miles string when format option is set', function () {
@@ -218,6 +234,7 @@ describe('geodist', function () {
         format: true,
         unit: 'miles'
       });
+
       expect(dist).to.eql('587 miles');
     });
     it('should output mi string when format option is set', function () {
@@ -231,6 +248,7 @@ describe('geodist', function () {
         format: true,
         unit: 'mi'
       });
+
       expect(dist).to.eql('587 mi');
     });
     it('should output yards string when format option is set', function () {
@@ -244,6 +262,7 @@ describe('geodist', function () {
         format: true,
         unit: 'yards'
       });
+
       expect(dist).to.eql('1033883 yards');
     });
     it('should output feet string when format option is set', function () {
@@ -257,6 +276,7 @@ describe('geodist', function () {
         format: true,
         unit: 'feet'
       });
+
       expect(dist).to.eql('3101650 feet');
     });
     it('should output km string when format option is set', function () {
@@ -270,6 +290,7 @@ describe('geodist', function () {
         format: true,
         unit: 'km'
       });
+
       expect(dist).to.eql('945 km');
     });
     it('should output kilometers string when format option is set', function () {
@@ -283,6 +304,7 @@ describe('geodist', function () {
         format: true,
         unit: 'kilometers'
       });
+
       expect(dist).to.eql('945 kilometers');
     });
   });
