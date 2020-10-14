@@ -1,5 +1,4 @@
-[![NPM Version](https://img.shields.io/npm/v/@yr/geodist.svg?style=flat)](https://npmjs.org/package/@yr/geodist)
-[![Build Status](https://img.shields.io/travis/YR/geodist.svg?style=flat)](https://travis-ci.org/YR/geodist)
+[![Build Status](https://img.shields.io/travis/nrkno/yr-geodist.svg?style=flat)](https://travis-ci.org/nrkno/yr-geodist)
 
 *This is a fork of [cmoncrief/geodist](https://github.com/cmoncrief/geodist)*
 
