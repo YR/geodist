@@ -23,7 +23,7 @@
   "repository": "https://github.com/yr/geodist.git",
   "license": "MIT",
   "scripts": {
-    "prepublish": "buddy build",
+    "prepublishOnly": "buddy build",
     "test": "NODE_ENV=test mocha test/lib-test.js --reporter spec",
     "test-client": "buddy build && mocha-phantomjs test/test-runner.html"
   },
