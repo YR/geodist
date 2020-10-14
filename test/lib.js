@@ -107,7 +107,7 @@ var global = window.global = window;
     }));
   };
 })(typeof global === "undefined" ? self : global);
-_m_['@yr/number-utils/index.js#1.1.1']=(function(module,exports){
+_m_['@nrk/yr-number-utils/index.js#2.0.0']=(function(module,exports){
   module=this;exports=module.exports;
 
   'use strict';
@@ -120,7 +120,6 @@ _m_['@yr/number-utils/index.js#1.1.1']=(function(module,exports){
    */
   
   exports.TWO_PI = Math.PI * 2;
-  
   exports.HALF_PI = Math.PI * 0.5;
   
   /**
@@ -214,11 +213,11 @@ _m_['@yr/number-utils/index.js#1.1.1']=(function(module,exports){
   
     if (!decimalPlaces) return Math.round(value) * (isNegative ? -1 : 1);
   
-    var parts = value.toString().split('.'),
-        pre = parts[0] + parts[1].substr(0, decimalPlaces),
-        post = parts[1].slice(decimalPlaces),
-        postRound = Math.round(post / Math.pow(10, post.length)),
-        places = Math.pow(10, decimalPlaces || 0);
+    var parts = value.toString().split('.');
+    var pre = parts[0] + parts[1].substr(0, decimalPlaces);
+    var post = parts[1].slice(decimalPlaces);
+    var postRound = Math.round(post / Math.pow(10, post.length));
+    var places = Math.pow(10, decimalPlaces || 0);
   
     if (parts[1].length > decimalPlaces) value = (+pre + postRound) / places;
   
@@ -239,7 +238,7 @@ _m_['src/index.js']=(function(module,exports){
    * @license MIT
    */
   
-  var numberUtils = _m_['@yr/number-utils/index.js#1.1.1'];
+  var numberUtils = _m_['@nrk/yr-number-utils/index.js#2.0.0'];
   
   var RADIUS_UNITS = {
     feet: 20908800,

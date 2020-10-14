@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-var numberUtils = require('@yr/number-utils');
+var numberUtils = require('@nrk/yr-number-utils');
 
 var RADIUS_UNITS = {
   feet: 20908800,

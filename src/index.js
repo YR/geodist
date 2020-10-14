@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-const numberUtils = require('@yr/number-utils');
+const numberUtils = require('@nrk/yr-number-utils');
 
 const RADIUS_UNITS = {
   feet: 20908800,

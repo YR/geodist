@@ -6,12 +6,12 @@ var round, geodist, expect;
 try {
   geodist = require('src/index.js');
   expect = window.expect;
-  round = require('@yr/number-utils/index.js#1.1.1').round;
+  round = require('@nrk/yr-number-utils/index.js#1.1.1').round;
 // .. or Node
 } catch (err) {
   geodist = require('../index.js');
   expect = require('expect.js');
-  round = require('@yr/number-utils').round;
+  round = require('@nrk/yr-number-utils').round;
 }
 
 describe('geodist', function () {
